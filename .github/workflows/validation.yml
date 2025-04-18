@@ -59,7 +59,7 @@ jobs:
           echo "matrix-unit=$(./scripts/computeMatrix.js unit-tests --parallel=2 current module args)" >> $GITHUB_OUTPUT
       - name: Compile and Install Flow
         run: |
-          cmd="mvn install -B -ntp -DskipTests  -pl \!flow-plugins/flow-gradle-plugin"
+          cmd="mvn install -B -X -ntp -DskipTests  -pl \!flow-plugins/flow-gradle-plugin"
           eval $cmd -T 2C -q || eval $cmd
       - name: Save workspace
         run: |
